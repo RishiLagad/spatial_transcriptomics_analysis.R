@@ -32,16 +32,6 @@ data_dir <- "C:\\Users\\rushi\\Downloads\\V1_Mouse_Brain_Sagittal_Posterior_Sect
 h5_mat_name <- file.path(data_dir, "filtered_feature_bc_matrix.h5")
 spatial_folder_path <- file.path(data_dir, "spatial")
 
-# Download the spatial folder and H5 matrix if necessary (URLs need to be specified)
-url_prefix <- "your_url_prefix_here" # This needs to be set to your specific URL prefix
-spatial_folder_id <- "your_spatial_folder_id_here" # Specify your folder ID
-h5_mat_id <- "your_h5_mat_id_here" # Specify your H5 matrix ID
-
-download.file(url = paste0(url_prefix, spatial_folder_id), 
-              destfile = spatial_folder_path)
-download.file(url = paste0(url_prefix, h5_mat_id), 
-              destfile = h5_mat_name)
-
 # Load a 10x Genomics Visium Spatial Experiment into a Seurat object
 brain_data <- Seurat::Load10X_Spatial(
   data.dir = data_dir, 
